@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} All Pokemon Cards {% endblock %}
+
+{% block content %} 
+
+<h1>Pokemon Cards List</h1>
+
+{% for card in cards %}
+    <div class="card">
+        <div class="content">
+            <span class="card-title">{{ card.name }}</span>
+            <p>{{ card.type }}</p>
+            <p>{{ card.desc }}</p>
+            <p>{{ card.rarity }}</p>
+            <p>{{ card.condition }}</p>
+        </div>
+    </div>
+    <br>
+
+{% endfor %}
+
+{% endblock %}
