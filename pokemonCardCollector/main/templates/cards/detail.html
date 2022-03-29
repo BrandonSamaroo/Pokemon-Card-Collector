@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} {{card.name}} {% endblock %}
+
+{% block content %} 
+
+<h1>{{card.name}}</h1>
+
+<div class="card">
+    <div class="content">
+        <span class="card-title">{{ card.name }}</span>
+        <p>{{ card.type }}</p>
+        <p>{{ card.desc }}</p>
+        <p>{{ card.rarity }}</p>
+        <p>{{ card.condition }}</p>
+        <img src="{{card.picture.url}}">
+    </div>
+</div>
+<br>
+
+
+{% endblock %}

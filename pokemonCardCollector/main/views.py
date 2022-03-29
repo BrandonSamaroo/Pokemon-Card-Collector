@@ -7,7 +7,7 @@ from .models import PokemonCard
 
 
 def home(request):
-    return HttpResponse("INDEX")
+    return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
@@ -15,3 +15,7 @@ def about(request):
 def cards_index(request):
     cards = PokemonCard.objects.all()
     return render(request, 'cards/index.html', {'cards': cards})
+
+def card_detail(request, card_id):
+    card =  PokemonCard.objects.get(id=card_id)
+    return render(request, "cards/detail.html", {'card': card})
