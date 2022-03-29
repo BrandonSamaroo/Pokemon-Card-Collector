@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %} All Pokemon Cards {% endblock %}
 
 {% block content %} 
@@ -13,6 +14,7 @@
             <p>{{ card.desc }}</p>
             <p>{{ card.rarity }}</p>
             <p>{{ card.condition }}</p>
+            <img src="{{card.picture.url}}">
         </div>
     </div>
     <br>
