@@ -9,13 +9,43 @@
 <div class="card">
     <div class="content">
         <span class="card-title">{{ card.name }}</span>
-        <p>{{ card.type }}</p>
-        <p>{{ card.desc }}</p>
-        <p>{{ card.rarity }}</p>
-        <p>{{ card.condition }}</p>
+        <p>Typing: {{ card.type }}</p>
+        <p>Description: {{ card.desc }}</p>
+        <p>Rarity: {{ card.rarity }}</p>
+        <p>Condition: {{ card.condition }}</p>
         <img src="{{card.picture.url}}">
+        <a href="{%url 'card_update' card.id%}">Edit Card</a>
+        <a href="{%url 'card_delete' card.id%}">Delete Card</a>
     </div>
 </div>
+
+<div>
+    <h1>Add a Listing</h1>
+    <hr>
+    <form action="{% url 'add_listing' card.id %}" method="post">
+        {% csrf_token %}
+        {{ listing_form.as_p }}
+        <input type="submit" class="btn" value="Add Listing">
+    </form>
+
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Website Name</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for listing in card.listing_set.all %}
+            <tr>
+                <td>{{listing.name}}</td>
+                <td><a href="{{listing.site}}">Click Here</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 <br>
 
 
