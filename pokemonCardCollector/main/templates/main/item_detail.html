@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} {{object.name}} {% endblock %}
+{% block content %} 
+
+<h1>{{object.name}}</h1>
+
+    <div class="card">
+        <div class="col m10">
+            <span class="card-title">{{ object.name }}</span>
+            <p>{{ object.effect }}</p>
+        </div>
+        <div>
+            <a href="{%url 'items_update' object.id%}">Update</a>
+            <a href="{%url 'items_delete' object.id%}">Delete</a>
+        </div>
+    </div>
+<br>
+
+ {% endblock %}

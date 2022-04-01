@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} View All Items {% endblock %}
+{% block content %} 
+<h1>View All Items</h1>
+<hr>
+{% for item in item_list %}
+    <a href="{% url 'items_detail' item.id %}">
+        <div class="card">
+            <div>
+                <span class="card-title">{{ item.name }}</span>
+                <p>{{ item.effect }}</p>
+            </div>
+        </div>
+    </a>
+    <br>
+{% endfor %}
+
+ {% endblock %}
